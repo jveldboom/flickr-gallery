@@ -1,0 +1,14 @@
+.blueimp-gallery > .indicator > li {
+	width: 30px;
+	height: 30px;
+}
+
+.thumbnail.photoset {
+	height: 210px;
+	overflow: hidden;
+}
+.thumbnail .caption {
+	font-size: .9em;
+	text-align: center;
+	vertical-align: middle;
+}
