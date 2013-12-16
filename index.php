@@ -24,6 +24,7 @@
 		'gallery_title' => 'Gallery',
 		'gallery_url'   => '/',
 		'assets_url'    => '/gallery',
+		'cache'         => array('path'=>__DIR__.'/gallery/cache','time'=>30),
 		'per_page'      => 24,
 		'indicator'     => true,
 		'jquery'        => true,
