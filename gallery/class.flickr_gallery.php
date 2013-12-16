@@ -58,15 +58,51 @@ class flickr_gallery
 	 */
 	private function apiRequest($method,$params=array())
 	{
+		$cache_key = $params;
+		
 		$params = array('api_key'=>urlencode($this->api_key),'format'=>'php_serial') + $params;
 		foreach($params as $k => $v){
 			$encoded_params[] = urlencode($k).'='.urlencode($v);
 		}
 
 		$url = 'http://api.flickr.com/services/rest/?method='.$method.'&'.implode('&', $encoded_params);
-		$response = file_get_contents($url);
+		
+		$response = self::getCache(implode('.', $cache_key)); // check for cached response
+		if(!$response)
+		{
+			$response = file_get_contents($url);
+			self::setCache(implode('.', $cache_key),$response); // store response in cache
+		}		
 		
 		return unserialize($response);
+	}
+
+	/*
+	|--------------------------------------------------------------------------
+	| File Cache
+	|--------------------------------------------------------------------------
+	*/
+
+	private function getCache($key)
+	{
+		// check if file exists and if file is newer than cache time setting (minutes)
+		if(file_exists($this->cache['path'].'/'.$key) AND filemtime($this->cache['path'].'/'.$key) > (date("U") - (60 * $this->cache['time'])))
+		{
+			$cache = file($this->cache['path'].'/'.$key);
+			return $cache[0];
+		}
+		
+		return false;
+	}
+
+	private function setCache($key,$data)
+	{
+		if(isset($this->cache['path']) AND is_writeable($this->cache['path']))
+		{
+			$fp = fopen($this->cache['path'].'/'.$key, 'w');
+			fwrite($fp, $data);
+			fclose($fp);
+		}
 	}
 
 	/*
