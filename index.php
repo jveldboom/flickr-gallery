@@ -15,9 +15,9 @@
 </head>
 <body>
 
-  	<div class="container">
-  	<?php
-  	require('gallery/class.flickr_gallery.php');
+	<div class="container">
+	<?php
+	require('gallery/class.flickr_gallery.php');
 	$settings = array(
 		'api_key'       => 'YOUR API KEY',
 		'user_id'       => 'USER ID',
