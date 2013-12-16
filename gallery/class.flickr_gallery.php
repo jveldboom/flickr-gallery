@@ -36,6 +36,11 @@ class flickr_gallery
 		return $photos;
 	}
 
+	/**
+	 * Returns Flickr user id from a username
+	 * @param  string $username Flickr username
+	 * @return string user id
+	 */
 	public function getUserId($username)
 	{
 		$id = self::apiRequest('flickr.people.findByUsername',array('username'=>$username));
