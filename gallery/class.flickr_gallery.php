@@ -51,6 +51,22 @@ class flickr_gallery
 	}
 
 	/**
+	 * Recent photos from Flickr user
+	 * @param  string $photos number of photos to return
+	 * @return array
+	 */
+	public function getRecentPhotos($photos=5)
+	{
+		$photos = self::apiRequest('flickr.people.getPhotos',array('user_id'=>$this->user_id,'per_page'=>$photos));
+		if($photos['stat'] == 'ok')
+		{
+			return $photos['photos']['photo'];
+		}
+		
+		return false;
+	}
+
+	/**
 	 * Handles all Flickr API requests
 	 * @param  string $method http://www.flickr.com/services/api/
 	 * @param  array  $params api paramaters
