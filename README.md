@@ -1,7 +1,7 @@
 PHP Flickr Photoset Gallery
 ===========================
 
-Quick way to display photosets from Flickr through PHP. It uses [Bootstrap 3.0](http:://getbootstrap.com) along with [blueimp Gallery](https://github.com/blueimp/Gallery).
+Quick way to display photosets from Flickr through PHP. It uses [Bootstrap 3.0](http:://getbootstrap.com) along with [blueimp Gallery](https://github.com/blueimp/Gallery) and [Lazy Load](https://github.com/tuupola/jquery_lazyload).
 
 Requirements
 ------------
