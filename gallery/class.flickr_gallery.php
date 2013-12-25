@@ -228,7 +228,7 @@ class flickr_gallery
 						<!-- scripts -->
 						'.(!$this->jquery ? '' : '<script src="https://code.jquery.com/jquery.js"></script>').'
 						<script src="'.$this->assets_url.'/js/jquery.blueimp-gallery.min.js"></script>
-						<script src="gallery/js/jquery.lazyload.min.js" type="text/javascript"></script>
+						<script src="'.$this->assets_url.'/js/jquery.lazyload.min.js" type="text/javascript"></script>
 						<script>
 						$(function(){
 							var gallery = $("#blueimp-gallery").data("gallery");
