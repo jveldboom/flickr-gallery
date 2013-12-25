@@ -36,7 +36,7 @@ $settings = array(
 );
 
 $gallery = new flickr_gallery($settings);
-//echo $gallery->getUserId('jpn'); // use to get your flickr user id
+//echo $gallery->getUserId('YOUR USER NAME'); // use to get your flickr user id
 echo $gallery->display();
 ```
 
