@@ -203,7 +203,7 @@ class flickr_gallery
 				$title = self::imageTitle($set['title']);
 				$display .= '<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
 									<a href="http://farm'.$set['farm'].'.staticflickr.com/'.$set['server'].'/'.$set['id'].'_'.$set['secret'].'_b.jpg" class="thumbnail" title="'.$title.'" data-gallery>
-      								<img src="http://farm'.$set['farm'].'.staticflickr.com/'.$set['server'].'/'.$set['id'].'_'.$set['secret'].'_q.jpg" alt="'.$set['title'].'">
+      								<img class="lazy" data-original="http://farm'.$set['farm'].'.staticflickr.com/'.$set['server'].'/'.$set['id'].'_'.$set['secret'].'_q.jpg" width="150" height="150">
       							</a>
       						</div>';
     
@@ -228,8 +228,12 @@ class flickr_gallery
 						<!-- scripts -->
 						'.(!$this->jquery ? '' : '<script src="https://code.jquery.com/jquery.js"></script>').'
 						<script src="'.$this->assets_url.'/js/jquery.blueimp-gallery.min.js"></script>
+						<script src="gallery/js/jquery.lazyload.min.js" type="text/javascript"></script>
 						<script>
-						var gallery = $("#blueimp-gallery").data("gallery");
+						$(function(){
+							var gallery = $("#blueimp-gallery").data("gallery");
+							$("img.lazy").lazyload();
+						});
 						</script>';
 		}
 		else
