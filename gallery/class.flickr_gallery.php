@@ -81,7 +81,7 @@ class flickr_gallery
 			$encoded_params[] = urlencode($k).'='.urlencode($v);
 		}
 
-		$url = 'http://api.flickr.com/services/rest/?method='.$method.'&'.implode('&', $encoded_params);
+		$url = 'https://api.flickr.com/services/rest/?method='.$method.'&'.implode('&', $encoded_params);
 		
 		$response = self::getCache(implode('.', $cache_key)); // check for cached response
 		if(!$response)
