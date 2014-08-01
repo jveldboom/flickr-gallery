@@ -11,7 +11,7 @@ class flickr_gallery
 		
 		// set defaults
 		$this->gallery_title = ($this->gallery_title ? $this->gallery_title : 'Gallery Home');
-		$this->page          = ($_GET['p'] > 0 ? $_GET['p'] : 1);
+		$this->page          = (isset($_GET['p']) && $_GET['p'] > 0 ? $_GET['p'] : 1);
 		$this->per_page      = ($this->per_page ? $this->per_page : null);
 	}
 
