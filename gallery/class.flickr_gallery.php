@@ -86,7 +86,7 @@ class flickr_gallery
 		$response = self::getCache(implode('.', $cache_key)); // check for cached response
 		if(!$response)
 		{
-			$response = file_get_contents($url);
+			$response = @file_get_contents($url);
 			self::setCache(implode('.', $cache_key),$response); // store response in cache
 		}		
 		
